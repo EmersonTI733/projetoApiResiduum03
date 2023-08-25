@@ -1,0 +1,10 @@
+
+const path = require('path'); // para lidar com caminhos
+
+//indicar o local do diretorio do banco de dados
+module.exports = {
+  'config': path.resolve('db','config', 'config.js'),
+  'models-path': path.resolve('db','models'),
+  'seeders-path': path.resolve('db','seeders'),
+  'migrations-path': path.resolve('db','migrations')
+}
