@@ -468,11 +468,11 @@ router.delete('/deletar_empresa', async (req, res)=>{
         );
 
         if (users){
-            res.json({
+            res.json(data={
                 message:'cliente excluido com sucesso'
             })
         }else{
-            res.status(400).json({
+            res.json(data={
                 message:'ERROR, cliente nao foi excluido, porque nao existe no banco!'
             })
         }
@@ -490,11 +490,11 @@ router.delete('/deletar_condominio', async (req, res)=>{
         );
 
         if (users){
-            res.json({
+            res.json(data={
                 message:'cliente excluido com sucesso'
             })
         }else{
-            res.status(400).json({
+            res.json(data={
                 message:'ERROR, cliente nao foi excluido, porque nao existe no banco!'
             })
         }
