@@ -3,7 +3,12 @@ const db = require('../../../../db/models/index');
 const express = require('express');
 const router = express.Router(); // quero gerenciar somente as rotas
 
-router.get('/listar_condominios',async (req, res)=>{
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const {eAdmin} = require('../../../midlleware/auth');
+
+router.get('/listar_condominios', eAdmin, async (req, res)=>{
     // dados recebidos: nome_condominio, cnpj, cep, bairro, rua, numero, email, telefone, sindico
     const users = await db.dados_condominios.findAll(
         {
@@ -16,7 +21,8 @@ router.get('/listar_condominios',async (req, res)=>{
         res.status(200).json(
             data={
                 condominios_cadastrados : users,
-                code: 200
+                code: 200,
+                id: req.userId
             }
         )
     }else{

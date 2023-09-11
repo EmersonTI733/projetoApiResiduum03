@@ -49,3 +49,6 @@ DEPENDENCIA DO EXPRESS PARA O SERVIDOR
     dados recebidos: nome_condominio, cnpj, cep, bairro, rua, numero, email, telefone, sindico
 # dados_residencias
     dados recebidos: nome_titular, cpf, cep, bairro, rua, numero, email, telefone   
+
+
+    npm i --save bcryptjs para criptografias

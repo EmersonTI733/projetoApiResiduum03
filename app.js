@@ -4,6 +4,7 @@ const cors = require('cors');
 app.use(express.json()); //aceitar arquivo json
 
 const rotaAcesso = require('./api/controllers/rotas/acesso/login');
+const rota_cadastro_sistema = require('./api/controllers/rotas/cadastro/sistema');
 const rota_cadastro_empresa = require('./api/controllers/rotas/cadastro/empresa');
 const rota_cadastro_condominio = require('./api/controllers/rotas/cadastro/condominio');
 const rota_cadastro_residencia = require('./api/controllers/rotas/cadastro/residencia');
@@ -21,6 +22,7 @@ const total_de_clientes = require('./api/controllers/rotas/total_de_clientes/tot
 app.use(cors());
 
 app.use('/',rotaAcesso);
+app.use('/',rota_cadastro_sistema);
 app.use('/',rota_cadastro_empresa);
 app.use('/',rota_cadastro_condominio);
 app.use('/',rota_cadastro_residencia);
