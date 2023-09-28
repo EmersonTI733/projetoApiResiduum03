@@ -8,6 +8,7 @@ const cadastro = require('./api/controllers/cadastro');
 const deletar = require('./api/controllers/deletar');
 const editar = require('./api/controllers/editar');
 const listar = require('./api/controllers/listar');
+const total_clientes = require('./api/controllers/total_Clientes');
 
 
 
@@ -22,6 +23,7 @@ app.use('/', cadastro);
 app.use('/', deletar);
 app.use('/', editar);
 app.use('/', listar);
+app.use('/', total_clientes);
 
 
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
