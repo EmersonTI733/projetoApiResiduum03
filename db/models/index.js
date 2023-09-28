@@ -7,7 +7,7 @@ const path = require('path');// PERMITE TRABALHAR COM CAMINHO DE ARQUIVOS E DIRE
 const Sequelize = require('sequelize');// ORM PARA NODE.JS  mapeamento object-relacional
 const process = require('process'); // PERMITE OBTER INFORMAÇÕES DO PROCESSO NA PAGINA ATUAL
 const basename = path.basename(__filename);// PERMITE OBTER PARTE DO CAMINHO PARA O ARQUIVO
-const env = process.env.NODE_ENV || 'development'; // acessando o modo em desenvolvimento com a variavel de ambiente
+const env = process.env.NODE_ENV || 'production'; // acessando o modo em desenvolvimento com a variavel de ambiente
 const config = require(__dirname + '/../config/config.js')[env];// INCLUIR O ARQUIVO DE CONFIGURAÇÃO
 const db = {};// CRIA A CONSTANTE COM O OBJETO VAZIO
 

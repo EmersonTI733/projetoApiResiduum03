@@ -1,4 +1,4 @@
-const db = require('../../../../db/models/index');
+const db = require('../../db/models/index');
 
 const express = require('express');
 const router = express.Router(); // quero gerenciar somente as rotas
@@ -30,6 +30,7 @@ router.post('/login', async (req, res)=>{
 
                 res.status(200).json(data={
                     matricula:user.matricula,
+                    nome:user.nome,
                     message:"Usuario encontrado!",
                     code:200,
                     token

@@ -25,7 +25,7 @@ TRABALHANDO COM VARIAVEIS DE AMBIENTE
 # npm install dotenv --save
 
 # CRIAR A MIGRATION user
-    npx sequelize-cli model:generate --name user --attributes matricula:integer,senha:string
+    npx sequelize-cli model:generate --name user --attributes nome:string,matricula:integer,senha:string
 # CRIAR A MIGRATION Empresa
     npx sequelize-cli model:generate --name dados_empresas --attributes nome_fantasia:string,cnpj:integer,cep:string,bairro:string,rua:string,numero:string,razao_social:string,ceo:string,email:string,telefone:string
 # CRIAR A MIGRATION condominio
@@ -39,7 +39,7 @@ EXECUTAR A MIGRATION
 DEPENDENCIA DO EXPRESS PARA O SERVIDOR
 # npm i express
 # tabela user
- dados recebidos: matricula, senha
+ dados recebidos: nom, matricula, senha
 
 # nome das tabelas  dados_empresas, dados_condominios, dados_residencias
     dados nas referidas tabelas estao relacionados aos clientes da empresa
@@ -52,3 +52,5 @@ DEPENDENCIA DO EXPRESS PARA O SERVIDOR
 
 
     npm i --save bcryptjs para criptografias
+
+    npm i swagger-ui-express

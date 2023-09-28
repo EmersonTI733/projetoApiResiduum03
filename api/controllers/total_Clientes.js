@@ -1,4 +1,4 @@
-const db = require('../../../../db/models/index');
+const db = require('../../db/models/index');
 
 const express = require('express');
 const router = express.Router(); // quero gerenciar somente as rotas
