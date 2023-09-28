@@ -3,11 +3,11 @@ const app = express();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger.json');
 
-const acesso = require('./acesso');
-const cadastro = require('./cadastro');
-const deletar = require('./deletar');
-const editar = require('./editar');
-const listar = require('./listar');
+const acesso = require('./api/controllers/acesso');
+const cadastro = require('./api/controllers/cadastro');
+const deletar = require('./api/controllers/deletar');
+const editar = require('./api/controllers/editar');
+const listar = require('./api/controllers/listar');
 
 
 
