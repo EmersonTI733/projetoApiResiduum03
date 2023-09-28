@@ -14,12 +14,7 @@ router.post('/login', async (req, res)=>{
             //findOn para buscar somente um registro
         const user = await db.user.findOne({
             //indicar colunas
-            attributes:['matricula','senha'],
-            //qual registro quero retornar do banco de dados
-            // where:{
-            //     matricula : dados.matricula,
-            //     senha : dados.senha
-            // }
+            attributes:['nome','matricula','senha']
 
         });
         if(user){
