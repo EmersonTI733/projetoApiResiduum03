@@ -14,13 +14,17 @@ router.post('/login', async (req, res)=>{
             //findOn para buscar somente um registro
         const user = await db.user.findOne({
             //indicar colunas
-            attributes:['nome','matricula','senha']
+            attributes:['nome','matricula','senha'],
+            where:{
+                matricula : dados.matricula
+            }
 
         });
         if(user){
-            if(!(await bcrypt.compare(dados.senha, "$2a$08$.qUQe5MsYWmUtDClghAp/.bp5LH2bXSxVUnQf/EFM8YH0fBCT5LwK"))){
-                var token = jwt.sign({id:1}, "KJHJGHJFGHGJKHLKLKJLKJKHJHK",{
-                    expiresIn: '10d'
+            const valida = await bcrypt.compare(dados.senha, user.senha);
+            if(valida){
+                var token = jwt.sign({id:user.id}, "KJHJGHJFGHGJKHLKLKJLKJKHJHK",{
+                    expiresIn: '1h'
                 })
 
                 res.status(200).json(data={
@@ -29,6 +33,10 @@ router.post('/login', async (req, res)=>{
                     message:"Usuario encontrado!",
                     code:200,
                     token
+                })
+            }else{
+                res.status(400).json(data={
+                    message:"error de usuario"
                 })
             }
 

@@ -19,7 +19,7 @@ router.post('/cadastro_condominio', async (req, res)=>{
                 where:{
                     cnpj : dados.cnpj
                 }
-        
+           
             });
             //nao existe cadastro, entao cria
             if(!user){
@@ -173,16 +173,49 @@ router.post('/cadastro_residencia', async (req, res)=>{
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-router.get('/cadastro_acesso', async (req, res)=>{
+router.post('/cadastro_acesso', async (req, res)=>{
     
     //  $2a$08$.qUQe5MsYWmUtDClghAp/.bp5LH2bXSxVUnQf/EFM8YH0fBCT5LwK
-      const password = await bcrypt.hash("123456", 8);
-      console.log(password);
+    const dados = req.body;
+    //verificacao de cadastro se existe
+    const user = await db.user.findOne({
+        attributes:['matricula'],
+        where:{
+            matricula : dados.matricula
+        }
+
+    });
+
+    if(!user){
+        dados.senha = await bcrypt.hash(dados.senha, 8);
+        await db.user.create(dados).then((dadosUsuario)=>{
+            res.status(200).json(
+                data={
+                    message:'Dados cadastrados com sucesso',
+                    code: 200
+
+                }
+                
+            )
+        }).catch(()=>{
+            res.status(400).json(
+                data={
+                    message:'erro, usuario nao cadastrado'
+                }
+            )
+        })
+    }else{
+        res.status(400).json(
+            data={
+                message:'erro, usuario nao cadastrado, verifique dados'
+            }
+        )
+    }
+    //   const password = await bcrypt.hash("123456", 8);
+    //   console.log(password);
   
-      res.json({message:"sddfsddsdsds"});
+    //   res.json({message:"sddfsddsdsds"});
       
       
   }) 
-
-// exportação do modulo router
 module.exports = router;
